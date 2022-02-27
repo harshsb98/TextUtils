@@ -14,6 +14,22 @@ function TextForm(props) {
         let newText = text.toLowerCase();
         setText(newText);
     }
+    const handlecapone = () => {
+        try{
+        let newText = text.split(" ");
+        console.log(newText)
+        for(let i=0;i<newText.length;i++){
+            newText[i]=newText[i][0].toUpperCase()+ newText[i].slice(1)
+        }
+        let Catext= newText.join(" ")
+        setText(Catext)
+    }
+    catch{
+        setText("Enter Something First... and then try")
+    }
+
+    }
+
     const handleOnChange= (event) => {
         setText(event.target.value)
     }
@@ -29,6 +45,7 @@ function TextForm(props) {
         </div>
         <button className="btn btn-primary mx-1" onClick={handleUpClick}>Convert to Uppercase</button>
         <button className="btn btn-primary mx-1" onClick={handleLowClick}>Convert to Lowercase</button>
+        <button className="btn btn-primary mx-1" onClick={handlecapone}>Convert First letter to Uppercase</button>
     </div>
     <div className="container my-3">
         <h1>Your text summary</h1>
