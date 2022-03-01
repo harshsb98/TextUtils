@@ -7,25 +7,28 @@ function TextForm(props) {
 
         let newText = text.toUpperCase();
         setText(newText);
+        props.showalert("Converted to Uppercase","success")
     }
 
     const handleLowClick = () => {
 
         let newText = text.toLowerCase();
         setText(newText);
+        props.showalert("Converted to Lowercase","success")
     }
     const handlecapone = () => {
         try{
         let newText = text.split(" ");
-        console.log(newText)
         for(let i=0;i<newText.length;i++){
             newText[i]=newText[i][0].toUpperCase()+ newText[i].slice(1)
         }
         let Catext= newText.join(" ")
         setText(Catext)
+        props.showalert("First Letter Capitalized","success")
     }
     catch{
         setText("Enter Something First... and then try")
+        props.showalert("Nothing Found here","danger")
     }
 
     }
@@ -38,11 +41,13 @@ function TextForm(props) {
         var text = document.getElementById("myBox");
         text.select();
         navigator.clipboard.writeText(text.value);
+        props.showalert("Copied to Clipboard","success")
     }
 
     const handleExSpc =() =>{
         let newText = text.split(/[ ]+/);
         setText(newText.join(" "))
+        props.showalert("Extra Spaces Removed","success")
     }
 
     const [text, setText] = useState('Enter text here');
