@@ -51,7 +51,7 @@ function TextForm(props) {
     }
 
     const totalWords=()=>{
-    return text.split(/[ ]+/).filter((value)=>{return value!==''}).length;
+    return text.split(/\s+/).filter((value)=>{return value!==''}).length;
     }
 
     const [text, setText] = useState('Enter text here');
@@ -63,11 +63,11 @@ function TextForm(props) {
         <div className="mb-3">
         <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode==='light'?'white':'grey', color:props.mode==='light'?'black':'white'}} id="myBox" rows="8"></textarea>
         </div>
-        <button className="btn btn-primary mx-1" onClick={handleUpClick}>Convert to Uppercase</button>
-        <button className="btn btn-primary mx-1" onClick={handleLowClick}>Convert to Lowercase</button>
-        <button className="btn btn-primary mx-1" onClick={handlecapone}>Convert First letter to Uppercase</button>
-        <button className="btn btn-primary mx-1" onClick={handleCopy}>Copy</button>
-        <button className="btn btn-primary mx-1" onClick={handleExSpc}>Remove Extra Spaces</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleUpClick}>Convert to Uppercase</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleLowClick}>Convert to Lowercase</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handlecapone}>Convert First letter to Uppercase</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleCopy}>Copy</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleExSpc}>Remove Extra Spaces</button>
 
     </div>
     <div className={`container my-3 text-${props.mode==='light'?'dark':'light'}`}>
