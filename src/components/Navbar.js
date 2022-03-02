@@ -6,6 +6,7 @@ export default function Navbar(props) {
   let mystyle={
     borderBottom:"1px solid white"
   }
+
   return (
     <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`} style={mystyle}>
     <div className="container-fluid">
@@ -32,7 +33,7 @@ export default function Navbar(props) {
       <input className="form-check-input" onClick={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault" />
       <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable {props.mode==='light'?'dark':'light'} Mode</label>
     </div>
-</div></div>
+    </div></div>
   </nav>
   );
 }

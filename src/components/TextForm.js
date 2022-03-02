@@ -50,6 +50,10 @@ function TextForm(props) {
         props.showalert("Extra Spaces Removed","success")
     }
 
+    const totalWords=()=>{
+    return text.split(/[ ]+/).filter((value)=>{return value!==''}).length;
+    }
+
     const [text, setText] = useState('Enter text here');
     //setText("New text")
   return (
@@ -68,8 +72,8 @@ function TextForm(props) {
     </div>
     <div className={`container my-3 text-${props.mode==='light'?'dark':'light'}`}>
         <h1>Your text summary</h1>
-        <p>{text.split(" ").length} words and {text.length} characters</p>
-        <p>{0.008* text.split(" ").length} Minutes read</p>
+        <p>{totalWords()} words and {text.length} characters</p>
+        <p>{0.008* totalWords()} Minutes read</p>
         <h2>Preview</h2>
         <p>{text.length>0?text:"Enter Something in the text-box to preview.."}</p>
     </div>
